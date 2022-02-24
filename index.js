@@ -1,7 +1,7 @@
 // import our restaurants
 const restaurants = require("./restaurants.json");
 
-// import a set of tolls to talk to Firebase and Firestore
+// import a set of tools to talk to Firebase and Firestore
 const {
   initializeApp,
   applicationDefault,
@@ -27,29 +27,29 @@ const db = getFirestore();
 const restRef = db.collection("restaurants");
 
 // add each restaurant
-// restRef.add(restaurants[3])
-//   .then((doc) => {
-//     console.log("Added restaurant", doc.id);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
+restRef.add(restaurants[3])
+  .then((doc) => {
+    console.log("Added restaurant", doc.id);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 // read one document
-// restRef.doc('LJSTDbFxWwP1EYq2XRjp').get()
-//     .then(doc => {
-//         console.log(doc.id, '=>', doc.data())
-//     })
-//     .catch(err => console.error(err));
+restRef.doc('LJSTDbFxWwP1EYq2XRjp').get()
+    .then(doc => {
+        console.log(doc.id, '=>', doc.data())
+    })
+    .catch(err => console.error(err));
 
 // get all documents
-// restRef.get()
-//     .then(snapshot => {
-//         snapshot.forEach(doc => {
-//             console.log(doc.id, '=>', doc.data())
-//         })
-//     })
-//     .catch(console.error)
+restRef.get()
+    .then(snapshot => {
+        snapshot.forEach(doc => {
+            console.log(doc.id, '=>', doc.data())
+        })
+    })
+    .catch(console.error)
 
 //querying find a document(s)
 restRef
